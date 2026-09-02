@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>M. Gayathri | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg-card:#13131c;--bg-card2:#1a1a28;
+  --accent:#8b5cf6;--accent2:#ec4899;--cyan:#06b6d4;
+  --glow:rgba(139,92,246,.35);
+  --text:#f0f0ff;--muted:#8888aa;--border:rgba(139,92,246,.18);
+  --r:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orbs span{position:absolute;border-radius:50%;filter:blur(100px);opacity:.28;animation:orb 14s ease-in-out infinite}
+.orbs span:nth-child(1){width:500px;height:500px;background:var(--accent);top:-150px;left:-150px}
+.orbs span:nth-child(2){width:400px;height:400px;background:var(--accent2);bottom:-100px;right:-100px;animation-delay:-5s}
+.orbs span:nth-child(3){width:300px;height:300px;background:var(--cyan);top:40%;left:55%;animation-delay:-9s}
+@keyframes orb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-50px) scale(1.08)}}
+.cursor-glow{position:fixed;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.1) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:16px 60px;background:rgba(10,10,15,.82);backdrop-filter:blur(22px);border-bottom:1px solid var(--border);transition:padding .3s,box-shadow .3s}
+nav.compact{padding:10px 60px;box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);border-color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:600}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:400;background:rgba(10,10,15,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:40px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{text-decoration:none;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;transition:color .25s}
+.mobile-menu a:hover{color:var(--accent)}
+.wrap{position:relative;z-index:1}
+section{padding:110px 0}
+.container{max-width:1100px;margin:0 auto;padding:0 30px}
+.lbl{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.lbl::before{content:'';width:22px;height:2px;background:linear-gradient(to right,var(--accent),var(--accent2));border-radius:2px}
+.ttl{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;line-height:1.2;margin-bottom:14px}
+.sub{color:var(--muted);font-size:.95rem;max-width:540px;margin-bottom:52px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:100px;font-size:.88rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .25s}
+.btn-p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 28px var(--glow)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 36px var(--glow)}
+.btn-o{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-o:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-sm{padding:9px 20px;font-size:.8rem}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px}
+.hero-in{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.28);border-radius:100px;padding:5px 16px;font-size:.78rem;font-weight:500;color:var(--accent);margin-bottom:22px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 1.6s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.3rem,5.5vw,4rem);font-weight:800;line-height:1.1;margin-bottom:14px}
+.grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.typer-wrap{font-size:1.05rem;color:var(--muted);margin-bottom:26px;min-height:1.8em}
+.typer{color:var(--accent);font-weight:600;border-right:2px solid var(--accent);padding-right:2px;animation:caret .7s step-end infinite}
+@keyframes caret{0%,100%{border-color:var(--accent)}50%{border-color:transparent}}
+.hero-desc{color:var(--muted);font-size:.95rem;line-height:1.85;margin-bottom:36px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.hero-social{display:flex;gap:12px}
+.soc{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.9rem;transition:all .25s}
+.soc:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px)}
+.hero-vis{display:flex;justify-content:center;align-items:center}
+.av-wrap{position:relative;width:300px;height:300px}
+.av-ring{position:absolute;inset:-18px;border-radius:50%;background:conic-gradient(from 0deg,var(--accent),var(--accent2),var(--cyan),var(--accent));animation:spin 7s linear infinite;opacity:.75}
+@keyframes spin{to{transform:rotate(360deg)}}
+.av-ring-in{position:absolute;inset:-13px;border-radius:50%;background:var(--bg)}
+.av-circle{position:relative;z-index:2;width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#1e1b4b,#312e81);display:flex;align-items:center;justify-content:center}
+.av-txt{font-family:'Space Grotesk',sans-serif;font-size:4.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.chip{position:absolute;z-index:3;background:rgba(19,19,28,.92);border:1px solid var(--border);border-radius:12px;padding:9px 16px;font-size:.74rem;font-weight:600;color:var(--text);backdrop-filter:blur(12px);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.chip i{color:var(--accent);font-size:.85rem}
+.chip:nth-child(2){top:-18px;right:-28px;animation:chipA 4s ease-in-out infinite}
+.chip:nth-child(3){bottom:8px;left:-46px;animation:chipA 4s ease-in-out infinite -2s}
+.chip:nth-child(4){top:50%;right:-54px;transform:translateY(-50%);animation:chipB 4s ease-in-out infinite -1s}
+@keyframes chipA{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes chipB{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 9px))}}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:36px}
+.det{display:flex;flex-direction:column;gap:14px}
+.det-row{display:flex;align-items:flex-start;gap:14px;font-size:.9rem;color:var(--muted)}
+.det-row i{width:18px;color:var(--accent);font-size:.95rem;margin-top:3px;flex-shrink:0}
+.det-row strong{color:var(--text);margin-right:6px}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.sk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;transition:all .3s;position:relative;overflow:hidden;cursor:default}
+.sk-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:0;transition:opacity .3s}
+.sk-card:hover::after{opacity:.05}
+.sk-card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 14px 40px var(--glow)}
+.sk-icon{width:46px;height:46px;border-radius:12px;background:rgba(139,92,246,.13);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:14px;color:var(--accent);position:relative;z-index:1}
+.sk-name{font-weight:600;font-size:.92rem;margin-bottom:10px;position:relative;z-index:1}
+.sk-bar-bg{height:4px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;position:relative;z-index:1}
+.sk-bar{height:100%;background:linear-gradient(to right,var(--accent),var(--accent2));border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.sk-pct{font-size:.7rem;color:var(--muted);margin-top:5px;text-align:right;position:relative;z-index:1}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+.proj-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:30px;transition:all .3s;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--accent),var(--accent2));opacity:0;transition:opacity .3s}
+.proj-card:hover::before{opacity:1}
+.proj-card:hover{border-color:var(--accent);transform:translateY(-6px);box-shadow:0 20px 60px var(--glow)}
+.proj-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22);border-radius:100px;padding:3px 11px;font-size:.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.8px;width:fit-content}
+.proj-ico{font-size:1.9rem;color:var(--accent)}
+.proj-title{font-family:'Space Grotesk',sans-serif;font-size:1.07rem;font-weight:700}
+.proj-desc{color:var(--muted);font-size:.86rem;line-height:1.7;flex:1}
+.proj-tech{display:flex;flex-wrap:wrap;gap:7px}
+.tt{background:var(--bg-card2);border:1px solid var(--border);border-radius:6px;padding:2px 9px;font-size:.7rem;font-weight:500;color:var(--muted)}
+.proj-actions{display:flex;gap:10px;margin-top:6px}
+.modal-overlay{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.87);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;width:100%;max-width:920px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;animation:modalIn .3s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border);flex-shrink:0}
+.modal-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700}
+.modal-close{width:32px;height:32px;border-radius:8px;background:rgba(139,92,246,.1);border:1px solid var(--border);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .25s}
+.modal-close:hover{background:var(--accent2);border-color:var(--accent2);color:#fff}
+.modal-iframe{flex:1;min-height:520px;border:none;background:#fff}
+.edu-timeline{display:flex;flex-direction:column}
+.edu-item{display:flex;gap:0;position:relative}
+.edu-item:not(:last-child)::after{content:'';position:absolute;left:23px;top:52px;bottom:-24px;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+.edu-dot{min-width:48px;height:48px;border-radius:50%;background:rgba(139,92,246,.14);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent);margin-top:2px;margin-right:28px;transition:all .3s;flex-shrink:0}
+.edu-item:hover .edu-dot{background:rgba(139,92,246,.28);border-color:var(--accent)}
+.edu-body{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:26px 30px;margin-bottom:24px;flex:1;transition:all .3s}
+.edu-item:hover .edu-body{border-color:var(--accent);box-shadow:0 8px 28px var(--glow)}
+.edu-school{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;margin-bottom:4px}
+.edu-deg{color:var(--muted);font-size:.85rem;margin-bottom:10px}
+.edu-pills{display:flex;gap:10px;flex-wrap:wrap}
+.edu-pill{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;color:var(--accent);font-weight:600;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2);border-radius:100px;padding:3px 12px}
+.ws-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:40px}
+.ws-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px;display:flex;gap:14px;transition:all .3s}
+.ws-card:hover{border-color:var(--accent2);box-shadow:0 8px 28px rgba(236,72,153,.15);transform:translateY(-3px)}
+.ws-ico{font-size:1.5rem;color:var(--accent2);flex-shrink:0;margin-top:2px}
+.ws-txt{font-size:.86rem;line-height:1.65;color:var(--muted)}
+.ws-txt strong{color:var(--text);display:block;margin-bottom:4px;font-weight:600}
+#contact{background:var(--bg-card);border-top:1px solid var(--border)}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.con-form{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inp{width:100%;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-family:'Poppins',sans-serif;font-size:.88rem;outline:none;transition:border-color .25s,box-shadow .25s}
+.inp:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+textarea.inp{resize:vertical;min-height:110px}
+.con-links{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.con-link{display:flex;align-items:center;gap:14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 18px;text-decoration:none;color:var(--text);transition:all .25s}
+.con-link:hover{border-color:var(--accent);transform:translateX(5px);color:var(--accent)}
+.con-link i{width:18px;color:var(--accent);font-size:1rem}
+.con-link span{font-size:.88rem}
+.con-stats{display:flex;flex-direction:column;gap:14px}
+.stat-box{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;display:flex;align-items:center;gap:14px}
+.stat-ico{width:46px;height:46px;border-radius:12px;background:rgba(139,92,246,.13);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent)}
+.stat-num{font-size:1.55rem;font-weight:700;font-family:'Space Grotesk',sans-serif}
+.stat-lbl{font-size:.75rem;color:var(--muted)}
+#btt{position:fixed;bottom:28px;right:28px;z-index:400;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:1.1rem;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 6px 24px var(--glow);transition:all .25s}
+#btt:hover{transform:translateY(-3px) scale(1.08)}
+#btt.show{display:flex}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg-card);border:1px solid var(--accent);border-radius:10px;padding:12px 22px;font-size:.88rem;color:var(--text);z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.fu{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  nav{padding:14px 24px}nav.compact{padding:10px 24px}
+  .hamburger{display:flex}.nav-links{display:none}
+  .hero-in,.about-grid,.con-grid{grid-template-columns:1fr}
+  .hero-vis{order:-1}.av-wrap{width:230px;height:230px}
+  section{padding:80px 0}
+  .chip:nth-child(4){display:none}
+}
+@media(max-width:600px){
+  .hero-name{font-size:2rem}.form-row{grid-template-columns:1fr}
+  section{padding:60px 0}.container{padding:0 18px}
+}
+</style>
+</head>
+<body>
+<div class="orbs"><span></span><span></span><span></span></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav id="navbar">
+  <div class="nav-logo">Gayathri.dev</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="m-link">About</a>
+  <a href="#skills" class="m-link">Skills</a>
+  <a href="#projects" class="m-link">Projects</a>
+  <a href="#education" class="m-link">Education</a>
+  <a href="#contact" class="m-link">Contact</a>
+</div>
+
+<div class="wrap">
+
+<!-- HERO -->
+<section id="hero">
+<div class="container">
+<div class="hero-in">
+  <div class="fu">
+    <div class="badge"><span class="dot"></span> Open to Freelance &amp; Part-time</div>
+    <h1 class="hero-name">Hi, I&apos;m<br><span class="grad">M. Gayathri</span></h1>
+    <div class="typer-wrap">I&apos;m a <span class="typer" id="typer"></span></div>
+    <p class="hero-desc">A passionate ECE graduate from KKR &amp; KSR Institute of Technology with a strong love for front-end development and IoT systems. I craft clean, functional digital experiences.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-p"><i class="fa-solid fa-rocket"></i> View Projects</a>
+      <a href="#contact" class="btn btn-o"><i class="fa-solid fa-paper-plane"></i> Hire Me</a>
+    </div>
+    <div class="hero-social">
+      <a href="mailto:marriboinagayathri222@gmail.com" class="soc" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+918897093405" class="soc" title="Phone"><i class="fa-solid fa-phone"></i></a>
+      <a href="#" class="soc" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="#" class="soc" title="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
+  </div>
+  <div class="hero-vis fu">
+    <div class="av-wrap">
+      <div class="av-ring"></div>
+      <div class="av-ring-in"></div>
+      <div class="av-circle"><span class="av-txt">MG</span></div>
+      <div class="chip"><i class="fa-solid fa-microchip"></i> IoT Dev</div>
+      <div class="chip"><i class="fa-solid fa-code"></i> Web Dev</div>
+      <div class="chip"><i class="fa-solid fa-bolt"></i> ECE Grad</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+  <div class="about-grid">
+    <div class="fu">
+      <div class="lbl">About Me</div>
+      <h2 class="ttl">Who I Am</h2>
+      <p style="color:var(--muted);font-size:.93rem;line-height:1.9;margin-bottom:18px;">I am a driven ECE graduate with hands-on experience building IoT systems and web interfaces. My engineering background gives me a unique edge &mdash; I think about both hardware and software side of every product.</p>
+      <p style="color:var(--muted);font-size:.93rem;line-height:1.9;margin-bottom:28px;">Whether it is designing a responsive website, coding an Arduino project, or designing a PCB &mdash; I love turning ideas into reality and am eager to grow through real-world experience.</p>
+      <a href="#contact" class="btn btn-p"><i class="fa-solid fa-handshake"></i> Let&apos;s Connect</a>
+    </div>
+    <div class="about-card fu">
+      <div class="det">
+        <div class="det-row"><i class="fa-solid fa-user"></i><div><strong>Name:</strong> M. Gayathri (Marriboina)</div></div>
+        <div class="det-row"><i class="fa-solid fa-location-dot"></i><div><strong>Location:</strong> Sampath Nagar, Guntur, AP</div></div>
+        <div class="det-row"><i class="fa-solid fa-phone"></i><div><strong>Phone:</strong> +91 88970 93405</div></div>
+        <div class="det-row"><i class="fa-solid fa-envelope"></i><div><strong>Email:</strong> marriboinagayathri222@gmail.com</div></div>
+        <div class="det-row"><i class="fa-solid fa-graduation-cap"></i><div><strong>Degree:</strong> B.Tech &ndash; ECE, KKR &amp; KSR ITS</div></div>
+        <div class="det-row"><i class="fa-solid fa-calendar-check"></i><div><strong>Graduated:</strong> 2025</div></div>
+        <div class="det-row"><i class="fa-solid fa-star"></i><div><strong>Score:</strong> B.Tech 74.5% &nbsp;|&nbsp; Intermediate 81%</div></div>
+        <div class="det-row"><i class="fa-solid fa-briefcase"></i><div><strong>Available for:</strong> Freelance &amp; Part-time</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container">
+  <div class="lbl fu">Technical Skills</div>
+  <h2 class="ttl fu">What I Work With</h2>
+  <p class="sub fu">Core competencies across programming, hardware, and web technologies.</p>
+  <div class="sk-grid">
+    <div class="sk-card fu" data-pct="85"><div class="sk-icon"><i class="fa-brands fa-html5"></i></div><div class="sk-name">HTML5</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">85%</div></div>
+    <div class="sk-card fu" data-pct="80"><div class="sk-icon"><i class="fa-brands fa-css3-alt"></i></div><div class="sk-name">CSS3</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">80%</div></div>
+    <div class="sk-card fu" data-pct="70"><div class="sk-icon"><i class="fa-brands fa-js"></i></div><div class="sk-name">JavaScript</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">70%</div></div>
+    <div class="sk-card fu" data-pct="72"><div class="sk-icon"><i class="fa-brands fa-java"></i></div><div class="sk-name">Java</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">72%</div></div>
+    <div class="sk-card fu" data-pct="75"><div class="sk-icon"><i class="fa-solid fa-terminal"></i></div><div class="sk-name">C Language</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">75%</div></div>
+    <div class="sk-card fu" data-pct="78"><div class="sk-icon"><i class="fa-solid fa-wifi"></i></div><div class="sk-name">IoT</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">78%</div></div>
+    <div class="sk-card fu" data-pct="80"><div class="sk-icon"><i class="fa-solid fa-microchip"></i></div><div class="sk-name">Arduino</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">80%</div></div>
+    <div class="sk-card fu" data-pct="68"><div class="sk-icon"><i class="fa-solid fa-bolt"></i></div><div class="sk-name">PCB Design</div><div class="sk-bar-bg"><div class="sk-bar"></div></div><div class="sk-pct">68%</div></div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container">
+  <div class="lbl fu">Portfolio</div>
+  <h2 class="ttl fu">My Projects</h2>
+  <p class="sub fu">Hardware, IoT, and web projects &mdash; click Live Demo to preview the web ones!</p>
+  <div class="proj-grid">
+    <div class="proj-card fu">
+      <div class="proj-ico"><i class="fa-solid fa-cloud-rain"></i></div>
+      <div class="proj-tag"><i class="fa-solid fa-microchip"></i>&nbsp;IoT &middot; Arduino</div>
+      <div class="proj-title">Rain Detection System</div>
+      <div class="proj-desc">Real-time rain detection system to alert agricultural workers, developed in collaboration with Tata Motors. Integrated a rain sensor with Arduino for a cost-effective rural farming solution.</div>
+      <div class="proj-tech"><span class="tt">Arduino</span><span class="tt">Rain Sensor</span><span class="tt">Embedded C</span><span class="tt">IoT</span></div>
+    </div>
+    <div class="proj-card fu">
+      <div class="proj-ico"><i class="fa-solid fa-car-burst"></i></div>
+      <div class="proj-tag"><i class="fa-solid fa-shield-halved"></i>&nbsp;Safety &middot; IoT</div>
+      <div class="proj-title">Alcohol Detection System</div>
+      <div class="proj-desc">Vehicle safety system detecting alcohol presence with 90% accuracy in simulated tests. Integrated an MQ-3 alcohol sensor with Arduino for real-time driver monitoring.</div>
+      <div class="proj-tech"><span class="tt">Arduino</span><span class="tt">MQ-3 Sensor</span><span class="tt">IoT</span><span class="tt">Vehicle Safety</span></div>
+    </div>
+    <div class="proj-card fu">
+      <div class="proj-ico"><i class="fa-solid fa-store"></i></div>
+      <div class="proj-tag"><i class="fa-solid fa-globe"></i>&nbsp;Web Design</div>
+      <div class="proj-title">Candy Shop Website</div>
+      <div class="proj-desc">A visually appealing candy shop webpage with product cards and custom typography, built with HTML &amp; CSS. Features a pink-themed layout with hover effects and Google Fonts.</div>
+      <div class="proj-tech"><span class="tt">HTML5</span><span class="tt">CSS3</span><span class="tt">UI Design</span></div>
+      <div class="proj-actions">
+        <button class="btn btn-p btn-sm" onclick="openModal('Candy Shop Website','../candy shop.html')"><i class="fa-solid fa-eye"></i> Live Demo</button>
+      </div>
+    </div>
+    <div class="proj-card fu">
+      <div class="proj-ico"><i class="fa-solid fa-calculator"></i></div>
+      <div class="proj-tag"><i class="fa-brands fa-js"></i>&nbsp;JavaScript</div>
+      <div class="proj-title">JavaScript Calculator</div>
+      <div class="proj-desc">A functional calculator using JavaScript with variable manipulation and event handling. Supports arithmetic operations and demonstrates core DOM interaction skills.</div>
+      <div class="proj-tech"><span class="tt">HTML5</span><span class="tt">CSS3</span><span class="tt">JavaScript</span></div>
+      <div class="proj-actions">
+        <button class="btn btn-p btn-sm" onclick="openModal('JavaScript Calculator','../calculator.html')"><i class="fa-solid fa-eye"></i> Live Demo</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<div class="container">
+  <div class="lbl fu">Background</div>
+  <h2 class="ttl fu">Education</h2>
+  <p class="sub fu">Academic journey, milestones, and certifications.</p>
+  <div class="edu-timeline">
+    <div class="edu-item fu">
+      <div class="edu-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="edu-body">
+        <div class="edu-school">KKR and KSR Institute of Technology and Science</div>
+        <div class="edu-deg">Bachelor of Technology &ndash; Electronics and Communication Engineering</div>
+        <div class="edu-pills">
+          <span class="edu-pill"><i class="fa-solid fa-calendar"></i> 2021 &ndash; 2025</span>
+          <span class="edu-pill"><i class="fa-solid fa-chart-simple"></i> 74.5%</span>
+          <span class="edu-pill"><i class="fa-solid fa-location-dot"></i> Guntur, AP</span>
+        </div>
+      </div>
+    </div>
+    <div class="edu-item fu">
+      <div class="edu-dot"><i class="fa-solid fa-school"></i></div>
+      <div class="edu-body">
+        <div class="edu-school">Narayana Junior College</div>
+        <div class="edu-deg">Intermediate &ndash; MPC (Mathematics, Physics, Chemistry)</div>
+        <div class="edu-pills">
+          <span class="edu-pill"><i class="fa-solid fa-calendar"></i> 2019 &ndash; 2021</span>
+          <span class="edu-pill"><i class="fa-solid fa-chart-simple"></i> 81%</span>
+          <span class="edu-pill"><i class="fa-solid fa-location-dot"></i> Guntur, AP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;margin-top:64px;margin-bottom:6px;" class="fu">Workshops &amp; Certifications</h3>
+  <p style="color:var(--muted);font-size:.88rem;margin-bottom:0;" class="fu">Hands-on training beyond the classroom.</p>
+  <div class="ws-grid">
+    <div class="ws-card fu"><div class="ws-ico"><i class="fa-solid fa-certificate"></i></div><div class="ws-txt"><strong>Skill-Oriented Program</strong>Certified in a comprehensive skill-development program for professional and industry readiness.</div></div>
+    <div class="ws-card fu"><div class="ws-ico"><i class="fa-solid fa-wifi"></i></div><div class="ws-txt"><strong>Embedded Systems &amp; IoT Workshop</strong>Hands-on training covering sensor integration, microcontrollers, and IoT protocols.</div></div>
+    <div class="ws-card fu"><div class="ws-ico"><i class="fa-solid fa-microchip"></i></div><div class="ws-txt"><strong>PCB Designing &amp; Fabrication</strong>Workshop on PCB schematic design, EDA simulation, and physical board fabrication techniques.</div></div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+  <div class="lbl fu">Get In Touch</div>
+  <h2 class="ttl fu">Let&apos;s Work Together</h2>
+  <div class="con-grid">
+    <div class="fu">
+      <p style="color:var(--muted);font-size:.92rem;line-height:1.85;margin-bottom:20px;">I&apos;m actively looking for freelancing and part-time opportunities. Whether you have a project in mind or just want to say hello &mdash; drop me a message!</p>
+      <form class="con-form" id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <input type="text" class="inp" placeholder="Your Name" required/>
+          <input type="email" class="inp" placeholder="Email Address" required/>
+        </div>
+        <input type="text" class="inp" placeholder="Subject"/>
+        <textarea class="inp" placeholder="Your message..." required></textarea>
+        <button type="submit" class="btn btn-p" style="width:fit-content"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+      </form>
+      <div class="con-links">
+        <a href="mailto:marriboinagayathri222@gmail.com" class="con-link"><i class="fa-solid fa-envelope"></i><span>marriboinagayathri222@gmail.com</span></a>
+        <a href="tel:+918897093405" class="con-link"><i class="fa-solid fa-phone"></i><span>+91 88970 93405</span></a>
+        <div class="con-link"><i class="fa-solid fa-location-dot"></i><span>Sampath Nagar, Guntur, Andhra Pradesh</span></div>
+      </div>
+    </div>
+    <div class="con-stats fu">
+      <div class="stat-box"><div class="stat-ico"><i class="fa-solid fa-rocket"></i></div><div><div class="stat-num">4+</div><div class="stat-lbl">Projects Completed</div></div></div>
+      <div class="stat-box"><div class="stat-ico"><i class="fa-solid fa-code"></i></div><div><div class="stat-num">8+</div><div class="stat-lbl">Technologies Mastered</div></div></div>
+      <div class="stat-box"><div class="stat-ico"><i class="fa-solid fa-certificate"></i></div><div><div class="stat-num">3+</div><div class="stat-lbl">Certifications &amp; Workshops</div></div></div>
+      <div class="stat-box"><div class="stat-ico"><i class="fa-solid fa-star"></i></div><div><div class="stat-num">74.5%</div><div class="stat-lbl">B.Tech Academic Score</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+</div>
+<footer style="text-align:center;padding:28px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem">
+  <p>Designed &amp; coded with <span style="color:var(--accent2)">&#9829;</span> by <strong style="color:var(--text)">M. Gayathri</strong> &copy; 2025 &nbsp;&middot;&nbsp; <a href="mailto:marriboinagayathri222@gmail.com" style="color:var(--accent);text-decoration:none">marriboinagayathri222@gmail.com</a></p>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title" id="modalTitle">Preview</span>
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <iframe class="modal-iframe" id="modalFrame" src="" title="Project Preview"></iframe>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// Cursor glow
+const cg=document.getElementById('cursorGlow');
+document.addEventListener('mousemove',e=>{cg.style.left=e.clientX+'px';cg.style.top=e.clientY+'px'});
+
+// Navbar compact + active link
+const navbar=document.getElementById('navbar');
+const secs=[...document.querySelectorAll('section[id]')];
+const navAs=[...document.querySelectorAll('.nav-links a')];
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('compact',window.scrollY>60);
+  btt.classList.toggle('show',window.scrollY>300);
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-150)cur=s.id});
+  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+
+// Hamburger
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+document.querySelectorAll('.m-link').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+
+// Typing animation
+const words=['ECE Graduate.','Web Developer.','IoT Builder.','UI Designer.','Arduino Coder.'];
+let wi=0,ci=0,del=false;
+const typerEl=document.getElementById('typer');
+(function type(){
+  const w=words[wi];
+  if(!del){typerEl.textContent=w.slice(0,++ci);if(ci===w.length){del=true;return setTimeout(type,1600)}}
+  else{typerEl.textContent=w.slice(0,--ci);if(ci===0){del=false;wi=(wi+1)%words.length;return setTimeout(type,400)}}
+  setTimeout(type,del?60:100);
+})();
+
+// Scroll fade + skill bars
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      const bar=e.target.querySelector && e.target.querySelector('.sk-bar');
+      if(bar){const p=e.target.dataset.pct;setTimeout(()=>bar.style.width=p+'%',150)}
+    }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+// Modal
+function openModal(title,src){
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalFrame').src=src;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){
+  if(!e||e.target===document.getElementById('modal')){
+    document.getElementById('modal').classList.remove('open');
+    document.getElementById('modalFrame').src='';
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+// Contact form toast
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+function submitForm(e){
+  e.preventDefault();
+  showToast('Thanks! Your message was sent successfully!');
+  e.target.reset();
+}
+</script>
+</body>
+</html>
